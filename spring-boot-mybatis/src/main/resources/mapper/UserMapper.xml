@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.rolex.tips.mapper.UserMapper">
+    <!-- 开启二级缓存 -->
+    <cache/>
+
+    <select id="findByCondition" parameterType="com.rolex.tips.entity.User"
+            resultType="com.rolex.tips.entity.User">
+        select id, name, age, gender, skill from t_user
+        <where>
+            <if test="name != null">and name=#{name}</if>
+            <if test="age != null">and age=#{age}</if>
+            <if test="gender != null">and gender=#{gender}</if>
+        </where>
+    </select>
+
+    <select id="findByAnyCondition" parameterType="com.rolex.tips.entity.User"
+            resultType="com.rolex.tips.entity.User">
+        select id, name, age, gender, skill from t_user
+        <where>
+            <choose>
+                <when test="name != null">and name=#{name}</when>
+                <when test="age != null">and age=#{age}</when>
+                <when test="gender != null">and gender=#{gender}</when>
+            </choose>
+        </where>
+    </select>
+
+    <update id="update" parameterType="com.rolex.tips.entity.User">
+        update t_user
+        <set>
+            <if test="name != null">name=#{name},</if>
+            <if test="age != null">age=#{age},</if>
+            <if test="gender != null">gender=#{gender}</if>
+        </set>
+        where id=#{id}
+    </update>
+
+    <insert id="batchSave">
+        insert into t_user
+        (name, age, gender, skill)
+        values
+        <foreach collection="list" item="user" index="index" separator=",">
+            (#{user.name}, #{user.age}, #{user.gender}, #{user.skill} )
+        </foreach>
+    </insert>
+
+    <select id="batchQuery" resultType="com.rolex.tips.entity.User">
+        select name, age, gender, skill from t_user
+        where id in
+        <foreach collection="list" item="id" index="index" open="(" close=")" separator=",">
+            #{id}
+        </foreach>
+    </select>
+
+    <delete id="batchDelete">
+        delete from t_user where id in
+        <foreach collection="list" item="id" index="index" open="(" close=")" separator=",">
+            #{id}
+        </foreach>
+    </delete>
+
+    <update id="batchUpdate">
+        <foreach collection="list" item="user" index="index" separator=";">
+            update t_user
+            <set>
+                <if test="user.name != null">name=#{user.name},</if>
+                <if test="user.age != null">age=#{user.age},</if>
+                <if test="user.gender != null">gender=#{user.gender}</if>
+            </set>
+            where id=#{user.id}
+        </foreach>
+    </update>
+
+    <select id="listForPage" resultType="com.rolex.tips.entity.User">
+        select * from t_user
+    </select>
+
+    <select id="findByNameAndAge" resultType="com.rolex.tips.entity.User">
+        select * from t_user where name=#{name} and age=#{age}
+    </select>
+
+    <select id="findByAge" parameterType="java.lang.Integer" resultType="com.rolex.tips.entity.User">
+        select * from t_user where age=#{age}
+    </select>
+
+    <resultMap id="groupByColumnResultMap" type="java.util.Map">
+        <result property="age" column="age"></result>
+        <result property="count" column="count"></result>
+    </resultMap>
+
+    <select id="groupByColumn" parameterType="java.lang.String" resultMap="groupByColumnResultMap">
+        select age, count(*) as count from t_user group by ${columnName}
+    </select>
+</mapper>

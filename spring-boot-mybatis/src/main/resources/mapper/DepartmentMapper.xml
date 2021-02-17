@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.rolex.tips.mapper.DepartmentMapper">
+
+    <resultMap id="deptResultMap" type="com.rolex.tips.entity.Department">
+        <id column="dept_id" property="deptId"></id>
+        <result column="dept_name" property="deptName"></result>
+        <collection property="employees" ofType="com.rolex.tips.entity.Employee">
+            <id column="id" property="id"></id>
+            <result column="name" property="name"></result>
+        </collection>
+
+    </resultMap>
+
+    <select id="findAll" resultMap="deptResultMap">
+        select e.id, e.name, d.dept_id, d.dept_name from t_employee e, t_dept d where e.dept_id=d.dept_id
+    </select>
+
+</mapper>
