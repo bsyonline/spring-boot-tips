@@ -10,7 +10,7 @@
 | 1    | spring-boot-mybatis          | spring boot集成mybatis      |
 | 2    | spring-boot-mybatis-plus     | spring boot集成mybatis plus |
 | 3    | spring-boot-jpa              |                             |
-| 4    | spring-boot-multi-datasource |                             |
+| 4    | spring-boot-multi-datasource | spring boot mybatis多数据源 |
 | 5    | spring-boot-redis            |                             |
 | 6    | spring-boot-mongodb          |                             |
 | 7    | spring-boot-cache            |                             |
