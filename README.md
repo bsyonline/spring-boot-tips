@@ -5,17 +5,17 @@
 
 ## 目录
 
-| 序号 | 名称                         | 说明                        |
-| ---- | ---------------------------- | --------------------------- |
-| 1    | spring-boot-mybatis          | spring boot集成mybatis      |
-| 2    | spring-boot-mybatis-plus     | spring boot集成mybatis plus |
-| 3    | spring-boot-jpa              |                             |
-| 4    | spring-boot-multi-datasource | spring boot mybatis多数据源 |
-| 5    | spring-boot-redis            |                             |
-| 6    | spring-boot-mongodb          |                             |
-| 7    | spring-boot-cache            |                             |
-| 8    |                              |                             |
-|      |                              |                             |
+| 序号 | 名称                         | 说明                          |
+| ---- | ---------------------------- | ----------------------------- |
+| 1    | spring-boot-mybatis          | spring boot 集成 mybatis      |
+| 2    | spring-boot-mybatis-plus     | spring boot 集成 mybatis plus |
+| 3    | spring-boot-jpa              | spring boot jpa               |
+| 4    | spring-boot-multi-datasource | spring boot mybatis 多数据源  |
+| 5    | spring-boot-redis            |                               |
+| 6    | spring-boot-mongodb          |                               |
+| 7    | spring-boot-cache            |                               |
+| 8    |                              |                               |
+|      |                              |                               |
 
 
 
