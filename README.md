@@ -1,8 +1,8 @@
 # spring-boot-tips
 ![Spring Boot 2.4.2](https://img.shields.io/badge/Spring%20Boot-2.4.2-brightgreen.svg)
 ![Mysql 8.0](https://img.shields.io/badge/Mysql-8.0-blue.svg)
-![JDK 1.8](https://img.shields.io/badge/JDK-1.8-brightgreen.svg)
-![JUnit 5](https://img.shields.io/badge/JUnit-5-orange)
+![JDK 1.8](https://img.shields.io/badge/JDK-8-orange)
+![JUnit 5](https://img.shields.io/badge/JUnit-5-green)
 
 ## 目录
 
