@@ -1,3 +1,6 @@
+/*
+ * Copyright (C) 2021 bsyonline
+ */
 package com.rolex.tips.mapper;
 
 import com.github.pagehelper.PageHelper;
@@ -16,6 +19,10 @@ import java.util.List;
 import java.util.Map;
 import java.util.Random;
 
+/**
+ * @author rolex
+ * @since 2020
+ */
 @ExtendWith(SpringExtension.class)
 @SpringBootTest
 public class UserMapperTest {

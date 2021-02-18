@@ -1,3 +1,6 @@
+/*
+ * Copyright (C) 2021 bsyonline
+ */
 package com.rolex.tips.mapper;
 
 import com.rolex.tips.entity.Employee;
