@@ -1,3 +1,6 @@
+/*
+ * Copyright (C) 2020 bsyonline
+ */
 package com.rolex.tips;
 
 import com.rolex.tips.entity.Order;
@@ -10,6 +13,10 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit.jupiter.SpringExtension;
 
+/**
+ * @author rolex
+ * @since 2020
+ */
 @ExtendWith(SpringExtension.class)
 @SpringBootTest
 public class MultiDatasourceTest {

@@ -1,3 +1,6 @@
+/*
+ * Copyright (C) 2020 bsyonline
+ */
 package com.rolex.tips.mapper1;
 
 import com.rolex.tips.entity.User;
