@@ -1,0 +1,17 @@
+server:
+  port: 8088
+dubbo:
+  registry:
+    protocol: zookeeper
+    address: zookeeper://127.0.0.1:2181
+    port: 2181
+  protocol:
+    name: dubbo
+    port: 20890
+  scan:
+    base-packages: com.rolex.tips.service.impl
+  application:
+    name: ${spring.application.name}
+spring:
+  application:
+    name: dubbo-provider
