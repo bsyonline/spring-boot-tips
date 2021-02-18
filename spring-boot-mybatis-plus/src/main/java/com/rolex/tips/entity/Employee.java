@@ -1,3 +1,6 @@
+/*
+ * Copyright (C) 2021 bsyonline
+ */
 package com.rolex.tips.entity;
 
 import com.baomidou.mybatisplus.annotation.TableName;

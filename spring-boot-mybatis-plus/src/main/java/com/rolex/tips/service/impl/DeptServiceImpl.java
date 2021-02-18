@@ -1,3 +1,6 @@
+/*
+ * Copyright (C) 2021 bsyonline
+ */
 package com.rolex.tips.service.impl;
 
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
@@ -12,7 +15,7 @@ import org.springframework.stereotype.Service;
  * </p>
  *
  * @author rolex
- * @since 2020-06-20
+ * @since 2020
  */
 @Service
 public class DeptServiceImpl extends ServiceImpl<DeptMapper, Dept> implements IDeptService {
