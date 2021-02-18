@@ -1,3 +1,6 @@
+/*
+ * Copyright (C) 2019 bsyonline
+ */
 package com.rolex.tips.dao;
 
 import com.rolex.tips.entity.Coffee;
