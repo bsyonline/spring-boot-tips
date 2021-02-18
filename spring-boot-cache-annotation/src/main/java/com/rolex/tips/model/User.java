@@ -3,23 +3,19 @@
  */
 package com.rolex.tips.model;
 
+import lombok.AllArgsConstructor;
 import lombok.Data;
-
-import javax.persistence.*;
+import lombok.NoArgsConstructor;
 
 /**
  * @author rolex
  * @since 2019
  */
 @Data
-@Table(name="t_user")
-@Entity
+@AllArgsConstructor
+@NoArgsConstructor
 public class User {
-
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
     private String name;
     private int age;
-
 }

@@ -1,7 +1,7 @@
 /*
  * Copyright (C) 2019 bsyonline
  */
-package com.rolex.tips.service;
+package com.rolex.tips.service.impl;
 
 import com.rolex.tips.cache.annotation.Cache;
 import com.rolex.tips.dao.RedisDao;
@@ -17,13 +17,14 @@ import org.springframework.stereotype.Service;
  */
 @Slf4j
 @Service
-public class UserService {
+public class UserServiceImpl implements UserService {
 
     @Autowired
     UserDao userDao;
     @Autowired
     RedisDao redisDao;
 
+    @Override
     public User findById(int id) {
         User user = (User) redisDao.get(String.valueOf(id), User.class);
         if (user == null) {
@@ -38,6 +39,7 @@ public class UserService {
     }
 
     @Cache(key = "#id", returnType = User.class)
+    @Override
     public User findByIdWithCache(int id) {
         return userDao.findById(id);
     }

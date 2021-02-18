@@ -29,8 +29,8 @@ public class UserDaoImpl implements UserDao {
     @Override
     public User findById(Integer id) {
         Map<Integer, User> map = new HashMap<>();
-        map.put(1, new User(1, "John"));
-        map.put(2, new User(2, "Alice"));
+        map.put(1, new User(1, "John", 19));
+        map.put(2, new User(2, "Alice", 20));
         log.info("query user: {}", map.get(id));
         return map.get(id);
     }
@@ -43,6 +43,6 @@ public class UserDaoImpl implements UserDao {
 
     @Override
     public void delete(Integer id) {
-        log.info("delete user: {}", new User(id, ""));
+        log.info("delete user: {}", new User(id, "", 30));
     }
 }

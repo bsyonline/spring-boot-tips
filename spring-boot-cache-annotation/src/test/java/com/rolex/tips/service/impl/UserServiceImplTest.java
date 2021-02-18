@@ -1,4 +1,4 @@
-package com.rolex.tips.service;
+package com.rolex.tips.service.impl;
 
 import com.rolex.tips.model.User;
 import org.junit.jupiter.api.Assertions;
@@ -19,7 +19,7 @@ import org.springframework.test.context.junit.jupiter.SpringExtension;
  */
 @SpringBootTest
 @ExtendWith(SpringExtension.class)
-public class UserServiceTest {
+public class UserServiceImplTest {
 
     @Autowired
     UserService userService;

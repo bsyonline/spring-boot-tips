@@ -3,8 +3,8 @@
  */
 package com.rolex.tips.cache;
 
-import com.rolex.alphax.cache.annotation.Cache;
-import com.rolex.alphax.dao.RedisDao;
+import com.rolex.tips.cache.annotation.Cache;
+import com.rolex.tips.dao.RedisDao;
 import lombok.extern.slf4j.Slf4j;
 import org.aspectj.lang.ProceedingJoinPoint;
 import org.aspectj.lang.annotation.Around;
@@ -33,7 +33,7 @@ public class CacheAspect {
     @Autowired
     RedisDao redisDao;
 
-    @Around("@annotation(com.rolex.alphax.cache.annotation.Cache)")
+    @Around("@annotation(com.rolex.tips.cache.annotation.Cache)")
     public Object point(ProceedingJoinPoint pjp) throws Throwable {
         Object obj = null;
         MethodSignature signature = (MethodSignature) pjp.getSignature();
