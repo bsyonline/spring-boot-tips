@@ -1,7 +1,7 @@
 /*
  * Copyright (C) 2020 bsyonline
  */
-package com.rolex.tips.service;
+package com.rolex.tips.api;
 
 /**
  * @author rolex

@@ -3,7 +3,7 @@
  */
 package com.rolex.tips;
 
-import com.rolex.tips.service.DemoService;
+import com.rolex.tips.api.DemoService;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.dubbo.config.annotation.DubboReference;
 import org.springframework.boot.SpringApplication;

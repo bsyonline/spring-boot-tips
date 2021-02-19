@@ -1,9 +1,9 @@
 /*
  * Copyright (C) 2020 bsyonline
  */
-package com.rolex.tips.service.impl;
+package com.rolex.tips.service;
 
-import com.rolex.tips.service.DemoService;
+import com.rolex.tips.api.DemoService;
 import org.apache.dubbo.config.annotation.DubboService;
 import org.springframework.beans.factory.annotation.Value;
 
