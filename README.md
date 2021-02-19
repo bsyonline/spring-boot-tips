@@ -1,5 +1,5 @@
 # spring-boot-tips
-![Spring Boot 2.3.7.RELEASE](https://img.shields.io/badge/Spring%20Boot-2.3.7.RELEASE-brightgreen)
+![Spring Boot 2.4.2](https://img.shields.io/badge/Spring%20Boot-2.4.2-brightgreen)
 ![Mysql 8.0](https://img.shields.io/badge/MySQL-8.0-blue)
 ![JDK 1.8](https://img.shields.io/badge/JDK-8-orange)
 ![JUnit 5](https://img.shields.io/badge/JUnit-5-green)
@@ -17,7 +17,7 @@
 | 7    | spring-boot-cache            			| spring boot cache 示例 				   |
 | 8    | spring-boot-cache-annotation  			| 模拟 spring boot cache 自己写一个缓存注解|
 | 9    | spring-boot-file-upload    			| 文件上传下载示例						   |
-| 10   | spring-boot-zookeeper        			|                                          |
+| 10   | spring-boot-zookeeper        			| spring boot 集成 zookeeper ，curator api 的使用示例和 zk 分布式锁示例 |
 | 11   | spring-boot-mongodb          			|                                          |
 |      | spring-boot-scheduler        			|                                          |
 |      | spring-boot-shedlock         			|                                          |
