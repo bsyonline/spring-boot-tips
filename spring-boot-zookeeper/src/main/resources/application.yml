@@ -1,0 +1,8 @@
+zookeeper:
+  connectString: localhost:2181
+  maxRetries: 3 # 最大重试次数
+  baseSleepTimeMs: 1000 #初始休眠时间
+zk:
+  url: 127.0.0.1:2181
+  timeout: 1000
+  retry: 3
