@@ -15,7 +15,13 @@ import lombok.NoArgsConstructor;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-public class User {
-    int id;
-    String name;
+public class Response<T> {
+
+    int code;
+    String msg;
+    T result;
+
+    public static <T> Response success(T result) {
+        return new Response(200, "success", result);
+    }
 }
