@@ -25,7 +25,7 @@
 |      | spring-boot-elasticsearch    			|                                          |
 |      | spring-boot-sharding-jdbc    			|                                          |
 |      | spring-boot-websocket        			|                                          |
-|      | spring-boot-openapi          			|                                          |
+|      | spring-boot-openapi          			| spring boot 集成 swagger v3 |
 |      | spring-boot-rabbitmq         			|                                          |
 |      | spring-boot-rocketmq         			|                                          |
 |      | spring-boot-kafka            			|                                          |
