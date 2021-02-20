@@ -22,7 +22,7 @@
 |      | spring-boot-scheduler        			|                                          |
 |      | spring-boot-shedlock         			|                                          |
 |      | spring-boot-mail	          			|                                          |
-|      | spring-boot-elasticsearch    			|                                          |
+|      | spring-boot-elasticsearch    			| spring boot 集成 ealsticsearch high level client 示例 |
 |      | spring-boot-sharding-jdbc    			|                                          |
 |      | spring-boot-websocket        			|                                          |
 |      | spring-boot-openapi          			| spring boot 集成 swagger v3 |
