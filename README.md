@@ -18,9 +18,10 @@
 | 8    | spring-boot-cache-annotation  			| 模拟 spring boot cache 自己写一个缓存注解|
 | 9    | spring-boot-file-upload    			| 文件上传下载示例						   |
 | 10   | spring-boot-zookeeper        			| spring boot 集成 zookeeper ，curator api 的使用示例和 zk 分布式锁示例 |
-| 11   | spring-boot-mongodb          			|                                          |
-|      | spring-boot-scheduler        			|                                          |
-|      | spring-boot-shedlock         			|                                          |
+| 11   | spring-boot-mongodb          			| spring boot 集成 mongodb 示例 |
+|      | spring-boot-scheduler        			| spring boot scheduler 示例 |
+|      | spring-boot-quartz         			| spring boot 集成 quartz 实现分布式定时任务示例 |
+|      | spring-boot-shedlock         			| spring boot 集成 shedlock 实现分布式定时任务示例 |
 |      | spring-boot-mail	          			|                                          |
 |      | spring-boot-elasticsearch    			| spring boot 集成 ealsticsearch high level client 示例 |
 |      | spring-boot-sharding-jdbc    			|                                          |
