@@ -25,7 +25,8 @@
 |      | spring-boot-mail	          			|                                          |
 |      | spring-boot-elasticsearch    			| spring boot 集成 ealsticsearch high level client 示例 |
 |      | spring-boot-sharding-jdbc    			|                                          |
-|      | spring-boot-websocket        			|                                          |
+|      | spring-boot-websocket        			| spring boot 原生 websocket 示例          |
+|      | spring-boot-stomp-websocket   			| stomp 方式实现 websocket 示例            |
 |      | spring-boot-openapi          			| spring boot 集成 swagger v3 |
 |      | spring-boot-rabbitmq         			|                                          |
 |      | spring-boot-rocketmq         			|                                          |
