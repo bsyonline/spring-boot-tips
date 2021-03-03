@@ -1,0 +1,10 @@
+spring:
+  kafka:
+    bootstrap-servers: localhost:9092
+    producer:
+      buffer-memory: 33554432 # 缓冲区大小 32M
+      batch-size: 16384 # 批量发送的数据数量
+      acks: 1 # 0 是发送消息不等返回 ，1 是发送消息等主节点接收后返回 -1 是发送消息等所有节点接收后返回
+      key-serializer: org.apache.kafka.common.serialization.StringSerializer
+      value-serializer: org.apache.kafka.common.serialization.StringSerializer
+      retries: 0 # 重试次数
