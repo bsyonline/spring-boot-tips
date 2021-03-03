@@ -1,5 +1,5 @@
 # spring-boot-tips
-![Spring Boot 2.3.7.RELEASE](https://img.shields.io/badge/Spring%20Boot-2.3.7.RELEASE-brightgreen)
+![Spring Boot 2.4.2](https://img.shields.io/badge/Spring%20Boot-2.4.2-brightgreen)
 ![Mysql 8.0](https://img.shields.io/badge/MySQL-8.0-blue)
 ![JDK 1.8](https://img.shields.io/badge/JDK-8-orange)
 ![JUnit 5](https://img.shields.io/badge/JUnit-5-green)
@@ -43,7 +43,7 @@
 |      | spring-boot-log        	  			|                                          |
 |      | spring-boot-drools           			|                                          |
 |      | spring-boot-security         			|                                          |
-|      | spring-boot-dubbo            			|                                          |
+|      | spring-boot-dubbo            			| spring boot 集成 dubbo |
 |      |  						      			|                                          |
 
 
