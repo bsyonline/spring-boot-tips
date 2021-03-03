@@ -63,6 +63,24 @@ public class FileController {
         publisher.publishEvent(new FileUploadEvent(publisher, path.toString()));
     }
 
+    @PostMapping("/multiUpload")
+    public void upload(@RequestParam(value = "files", required = true) MultipartFile[] files) throws IOException {
+        for (MultipartFile file : files) {
+            byte[] bytes = file.getBytes();
+            Path dir = Paths.get(tmpDir);
+            Path path = Paths.get(tmpDir + File.separator + file.getOriginalFilename());
+            if (file.getSize() > 1024 * 1024 * 10) {
+                throw new RuntimeException("file is too large for system");
+            }
+            if (!Files.exists(dir)) {
+                Files.createDirectories(dir);
+            }
+            Files.write(path, bytes);
+
+            publisher.publishEvent(new FileUploadEvent(publisher, path.toString()));
+        }
+    }
+
     @PostMapping("/download")
     public ResponseEntity<Resource> download(@RequestParam("file") String fileName) throws IOException {
         Path path = Paths.get(tmpDir + File.separator + fileName);

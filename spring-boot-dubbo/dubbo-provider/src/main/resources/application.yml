@@ -8,8 +8,6 @@ dubbo:
   protocol:
     name: dubbo
     port: 20890
-  scan:
-    base-packages: com.rolex.tips.service.impl
   application:
     name: ${spring.application.name}
 spring:
