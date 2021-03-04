@@ -47,6 +47,7 @@
 |      | spring-boot-security         			| spring boot 集成 spring security 示例    								|
 |      | spring-boot-security-jwt      			| spring boot 集成 spring security 和 jwt 示例    						|
 |      | spring-boot-dubbo            			| spring boot 集成 dubbo 示例              								|
+|      | spring-boot-trace            			| spring boot 链路跟踪示例              								|
 |      |  						      			|                                          								|
 
 
