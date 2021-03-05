@@ -30,18 +30,28 @@ import java.util.UUID;
 public class LogInterceptor implements HandlerInterceptor, EnvironmentAware {
     public static final String TRACE_ID = "TraceId";
     public static final String SPAN_ID = "SpanId";
+    public static final String PARENT_SPAN_ID = "ParentSpanId";
+    public static final String SEQ = "Seq";
     private Environment environment;
 
     @Override
     public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler) throws Exception {
-        String traceId = request.getHeader(TRACE_ID);
-        String spanId = request.getHeader(SPAN_ID);
-        traceId = StringUtils.isEmpty(traceId) ? UUID.randomUUID().toString() : traceId;
-        spanId = StringUtils.isEmpty(spanId) ? "0" : spanId + "." + (Integer.parseInt(spanId.substring(spanId.length() - 1)) + 1);
+        String appName = environment.getProperty("spring.application.name");
+        String traceId = StringUtils.isEmpty(request.getHeader(TRACE_ID)) ? UUID.randomUUID().toString() : request.getHeader(TRACE_ID);
+        String parentSpanId = request.getHeader(PARENT_SPAN_ID);
+        String traceSeq = StringUtils.isEmpty(request.getHeader(SEQ)) ? "0" : request.getHeader(SEQ);
+        String localSeq = "0";
+        String spanId;
+        if (null == parentSpanId) {
+            spanId = "0";
+        } else {
+            spanId = parentSpanId + "." + traceSeq;
+        }
         MDC.put(TRACE_ID, traceId);
         MDC.put(SPAN_ID, spanId);
-        MDC.put("appName", environment.getProperty("spring.application.name"));
-
+        MDC.put(PARENT_SPAN_ID, parentSpanId);
+        MDC.put(traceId + "_" + parentSpanId, localSeq);
+        MDC.put("appName", appName);
         if (handler instanceof HandlerMethod) {
             Map map = new HashMap();
             HandlerMethod h = (HandlerMethod) handler;
@@ -56,8 +66,10 @@ public class LogInterceptor implements HandlerInterceptor, EnvironmentAware {
 
     @Override
     public void afterCompletion(HttpServletRequest request, HttpServletResponse response, Object handler, Exception ex) throws Exception {
-        MDC.remove(TRACE_ID);
+        MDC.remove(MDC.get(TRACE_ID) + "_" + MDC.get(PARENT_SPAN_ID));
+        MDC.remove(PARENT_SPAN_ID);
         MDC.remove(SPAN_ID);
+        MDC.remove(TRACE_ID);
         return;
     }
 

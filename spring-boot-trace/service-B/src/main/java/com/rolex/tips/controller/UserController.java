@@ -27,8 +27,9 @@ public class UserController {
 
     @GetMapping("/users")
     public String list() {
-        ResponseEntity<String> exchange = restTemplate.exchange("http://localhost:8084/products", HttpMethod.GET, null, String.class);
-        return String.format(" B(%s, %s) \n\t\t-> %s", MDC.get(TRACE_ID), MDC.get(SPAN_ID), exchange.getBody());
+        ResponseEntity<String> exchange = restTemplate.exchange("http://localhost:8085/stocks", HttpMethod.GET, null, String.class);
+        ResponseEntity<String> exchange1 = restTemplate.exchange("http://localhost:8086/rewards", HttpMethod.GET, null, String.class);
+        return String.format(" B(%s, %s) \n\t\t-> %s\n\t\t-> %s", MDC.get(TRACE_ID), MDC.get(SPAN_ID), exchange.getBody(), exchange1.getBody());
     }
 
 }

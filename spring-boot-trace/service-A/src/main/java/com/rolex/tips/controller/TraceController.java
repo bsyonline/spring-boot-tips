@@ -29,7 +29,8 @@ public class TraceController {
     public String trace() {
         ResponseEntity<String> exchange = restTemplate.exchange("http://localhost:8082/users", HttpMethod.GET, null, String.class);
         ResponseEntity<String> exchange1 = restTemplate.exchange("http://localhost:8083/orders", HttpMethod.GET, null, String.class);
-        return String.format("A(%s, %s) \n\t-> %s\n\t-> %s", MDC.get(TRACE_ID), MDC.get(SPAN_ID), exchange.getBody(), exchange1.getBody());
+        ResponseEntity<String> exchange2 = restTemplate.exchange("http://localhost:8084/products", HttpMethod.GET, null, String.class);
+        return String.format("A(%s, %s) \n\t-> %s\n\t-> %s\n\t-> %s", MDC.get(TRACE_ID), MDC.get(SPAN_ID), exchange.getBody(), exchange1.getBody(), exchange2.getBody());
     }
 
 }

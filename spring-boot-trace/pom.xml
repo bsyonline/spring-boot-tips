@@ -16,8 +16,10 @@
         <module>service-A</module>
         <module>service-B</module>
         <module>service-C</module>
-        <module>service-logging</module>
         <module>service-D</module>
+        <module>service-E</module>
+        <module>service-F</module>
+        <module>service-logging</module>
     </modules>
 
     <properties>
