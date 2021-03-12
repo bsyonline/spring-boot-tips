@@ -1,4 +1,4 @@
-package com.rolex.tips.config;
+package com.rolex.tips.log.config;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;

@@ -19,7 +19,7 @@
         <module>service-D</module>
         <module>service-E</module>
         <module>service-F</module>
-        <module>service-logging</module>
+        <module>service-tracing</module>
     </modules>
 
     <properties>

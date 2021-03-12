@@ -1,6 +1,6 @@
-package com.rolex.tips.config;
+package com.rolex.tips.log.config;
 
-import com.rolex.tips.LogInterceptor;
+import com.rolex.tips.log.interceptor.LogInterceptor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.web.servlet.config.annotation.InterceptorRegistry;

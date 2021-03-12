@@ -23,7 +23,7 @@
             <totalSizeCap>3GB</totalSizeCap>
         </rollingPolicy>
         <layout>
-            <Pattern>[%X{appName}] [%X{TraceId}] [%X{SpanId}] %d{yyyy-MM-dd'T'HH:mm:ss.SSS} %level ${PID:- } %thread %logger - %msg ##'%ex'%n</Pattern>
+            <Pattern>%green(%d{yyyy-MM-dd'T'HH:mm:ss.SSS}) %magenta(%level) %cyan([${appName},%X{TraceId},%X{SpanId}]) %blue(${PID:- }) %yellow(%thread) %red(%logger) - %msg ##'%exception'%n</Pattern>
         </layout>
     </appender>
     <appender name="errorFile" class="ch.qos.logback.core.rolling.RollingFileAppender">
@@ -43,7 +43,7 @@
             <onMismatch>DENY</onMismatch>
         </filter>
         <layout>
-            <Pattern>[%X{appName}] [%X{TraceId}] [%X{SpanId}] %d{yyyy-MM-dd'T'HH:mm:ss.SSS} %level ${PID:- } %thread %logger - %msg ##'%ex'%n</Pattern>
+            <Pattern>%green(%d{yyyy-MM-dd'T'HH:mm:ss.SSS}) %magenta(%level) %cyan([${appName},%X{TraceId},%X{SpanId}]) %blue(${PID:- }) %yellow(%thread) %red(%logger) - %msg ##'%exception'%n</Pattern>
         </layout>
     </appender>
 

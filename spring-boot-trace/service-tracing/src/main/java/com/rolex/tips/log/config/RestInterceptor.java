@@ -1,4 +1,4 @@
-package com.rolex.tips.config;
+package com.rolex.tips.log.config;
 
 import org.slf4j.MDC;
 import org.springframework.http.HttpRequest;
@@ -9,10 +9,10 @@ import org.springframework.stereotype.Component;
 
 import java.io.IOException;
 
-import static com.rolex.tips.LogInterceptor.PARENT_SPAN_ID;
-import static com.rolex.tips.LogInterceptor.SEQ;
-import static com.rolex.tips.LogInterceptor.SPAN_ID;
-import static com.rolex.tips.LogInterceptor.TRACE_ID;
+import static com.rolex.tips.log.interceptor.LogInterceptor.PARENT_SPAN_ID;
+import static com.rolex.tips.log.interceptor.LogInterceptor.SEQ;
+import static com.rolex.tips.log.interceptor.LogInterceptor.SPAN_ID;
+import static com.rolex.tips.log.interceptor.LogInterceptor.TRACE_ID;
 
 /**
  * <P>

@@ -8,8 +8,8 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.client.RestTemplate;
 
-import static com.rolex.tips.LogInterceptor.SPAN_ID;
-import static com.rolex.tips.LogInterceptor.TRACE_ID;
+import static com.rolex.tips.log.interceptor.LogInterceptor.SPAN_ID;
+import static com.rolex.tips.log.interceptor.LogInterceptor.TRACE_ID;
 
 /**
  * <P>
