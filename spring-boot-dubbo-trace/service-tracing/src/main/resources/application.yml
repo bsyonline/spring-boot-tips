@@ -1,0 +1,5 @@
+dubbo:
+  provider:
+    filter: traceIdFilter
+  consumer:
+    filter: traceIdFilter
