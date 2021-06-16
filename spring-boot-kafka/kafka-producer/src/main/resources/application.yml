@@ -8,3 +8,5 @@ spring:
       key-serializer: org.apache.kafka.common.serialization.StringSerializer
       value-serializer: org.apache.kafka.common.serialization.StringSerializer
       retries: 0 # 重试次数
+kafka:
+  topic: test_01
