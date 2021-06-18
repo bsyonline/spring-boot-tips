@@ -4,12 +4,12 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <parent>
         <artifactId>spring-boot-rabbitmq-exchange-example</artifactId>
-        <groupId>com.rolex.alphax</groupId>
+        <groupId>com.rolex.tips</groupId>
         <version>0.0.1-SNAPSHOT</version>
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
-    <artifactId>rabbit-consumer02</artifactId>
+    <artifactId>rabbitmq-consumer02</artifactId>
 
 
 </project>

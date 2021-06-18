@@ -4,10 +4,10 @@
     <modelVersion>4.0.0</modelVersion>
     <packaging>pom</packaging>
     <modules>
-        <module>rabbit-producer</module>
-        <module>rabbit-consumer01</module>
-        <module>rabbit-consumer02</module>
-        <module>rabbit-consumer03</module>
+        <module>rabbitmq-producer</module>
+        <module>rabbitmq-consumer01</module>
+        <module>rabbitmq-consumer02</module>
+        <module>rabbitmq-consumer03</module>
     </modules>
     <parent>
         <groupId>org.springframework.boot</groupId>
