@@ -28,8 +28,8 @@
 | 18 | spring-boot-websocket        			| spring boot 原生 websocket 示例          								|
 | 19 | spring-boot-stomp-websocket   			| stomp 方式实现 websocket 示例            								|
 | 20 | spring-boot-openapi          			| spring boot 集成 swagger v3              								|
-| 21 | spring-boot-rabbitmq         			|                                          								|
-| 22 | spring-boot-rocketmq         			|                                          								|
+| 21 | spring-boot-rabbitmq         			| spring boot 集成 rabbitmq 示例 |
+| 22 | spring-boot-rocketmq         			| spring boot 集成 rocketmq 示例 |
 | 23 | spring-boot-kafka            			| spring boot 集成 kafka 示例              								|
 | 24 | spring-boot-sso              			|                                          								|
 | 25 | spring-boot-oauth2           			|                                          								|
