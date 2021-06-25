@@ -6,6 +6,7 @@
     <packaging>pom</packaging>
     <modules>
         <module>dubbo-provider</module>
+        <module>dubbo-provider-v2</module>
         <module>dubbo-consumer</module>
         <module>dubbo-provider-api</module>
     </modules>
