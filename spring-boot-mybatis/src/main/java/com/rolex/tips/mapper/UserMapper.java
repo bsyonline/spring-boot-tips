@@ -4,6 +4,7 @@
 package com.rolex.tips.mapper;
 
 import com.rolex.tips.entity.User;
+import com.rolex.tips.vo.UserVO;
 import org.apache.ibatis.annotations.Insert;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
@@ -25,9 +26,9 @@ public interface UserMapper {
     @Select("select id, name, age, gender, skill from t_user")
     List<User> findAll();
 
-    List<User> findByCondition(User user);
+    List<User> findByCondition(UserVO user);
 
-    List<User> findByAnyCondition(User user);
+    List<User> findByAnyCondition(UserVO user);
 
     void update(User user);
 

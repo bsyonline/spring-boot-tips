@@ -4,24 +4,36 @@
     <!-- 开启二级缓存 -->
     <cache/>
 
-    <select id="findByCondition" parameterType="com.rolex.tips.entity.User"
-            resultType="com.rolex.tips.entity.User">
-        select id, name, age, gender, skill from t_user
+    <resultMap id="userMap" type="com.rolex.tips.entity.User">
+        <id column="id" property="id"/>
+        <result column="age" property="age"/>
+        <result column="gender" property="gender"/>
+        <result column="skill" property="skill"/>
+        <result column="create_time" property="createTime"/>
+        <result column="update_time" property="updateTime"/>
+    </resultMap>
+
+    <select id="findByCondition" parameterType="com.rolex.tips.vo.UserVO" resultMap="userMap">
+        select id, name, age, gender, skill, create_time, update_time from t_user
         <where>
+            1=1
             <if test="name != null">and name=#{name}</if>
             <if test="age != null">and age=#{age}</if>
             <if test="gender != null">and gender=#{gender}</if>
+            <if test="start != null">and create_time >= #{start}</if>
+            <if test="end != null">and #{end} >= create_time</if>
         </where>
     </select>
 
-    <select id="findByAnyCondition" parameterType="com.rolex.tips.entity.User"
-            resultType="com.rolex.tips.entity.User">
-        select id, name, age, gender, skill from t_user
+    <select id="findByAnyCondition" parameterType="com.rolex.tips.vo.UserVO" resultMap="userMap">
+        select id, name, age, gender, skill create_time, update_time from t_user
         <where>
             <choose>
                 <when test="name != null">and name=#{name}</when>
                 <when test="age != null">and age=#{age}</when>
                 <when test="gender != null">and gender=#{gender}</when>
+                <when test="start != null">and create_time >= #{start}</when>
+                <when test="end != null">and #{end} >= create_time</when>
             </choose>
         </where>
     </select>

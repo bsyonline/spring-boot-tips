@@ -1,12 +1,13 @@
 drop table if exists t_user;
 create table t_user
 (
-    id     int auto_increment
-        primary key,
+    id     int auto_increment primary key,
     name   varchar(50) not null,
     age    int         null,
     gender tinyint     null,
-    skill  varchar(10) null
+    skill  varchar(10) null,
+    create_time  datetime,
+    update_time  datetime
 );
 
 drop table if exists t_employee;

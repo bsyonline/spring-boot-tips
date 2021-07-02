@@ -8,6 +8,7 @@ import com.github.pagehelper.PageInfo;
 import com.rolex.tips.entity.Gender;
 import com.rolex.tips.entity.Skill;
 import com.rolex.tips.entity.User;
+import com.rolex.tips.vo.UserVO;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -15,6 +16,7 @@ import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit.jupiter.SpringExtension;
 
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 import java.util.Map;
 import java.util.Random;
@@ -32,7 +34,7 @@ public class UserMapperTest {
 
     @Test
     public void insert() {
-        User user = new User("tom", 19, Gender.Male, Skill.Java);
+        User user = new User("tom", 19, Gender.Male, Skill.Java, new Date(), new Date());
         int count = userMapper.save(user);
         System.out.println("insert record count : " + count);
     }
@@ -45,7 +47,7 @@ public class UserMapperTest {
 
     @Test
     public void findByCondition() {
-        User user = new User();
+        UserVO user = new UserVO();
         user.setAge(20);
         user.setGender(Gender.Male);
         List<User> users = userMapper.findByCondition(user);
@@ -54,7 +56,7 @@ public class UserMapperTest {
 
     @Test
     public void findByAnyCondition() {
-        User user = new User();
+        UserVO user = new UserVO();
 //        user.setAge(20);
         user.setGender(Gender.Male);
         List<User> users = userMapper.findByAnyCondition(user);
@@ -73,7 +75,7 @@ public class UserMapperTest {
     public void bulkInsert() {
         List<User> list = new ArrayList<>();
         for (int i = 0; i < 100; i++) {
-            User user = new User("user" + (i + 1), new Random().nextInt(20) + 10, Gender.nameOf(new Random().nextInt(2) + 1), Skill.Java);
+            User user = new User("user" + (i + 1), new Random().nextInt(20) + 10, Gender.nameOf(new Random().nextInt(2) + 1), Skill.Java, new Date(), new Date());
             list.add(user);
         }
         int count = userMapper.batchSave(list);
@@ -100,8 +102,8 @@ public class UserMapperTest {
 
     @Test
     public void bulkUpdate() {
-        User user = new User(3, "alice", 29, Gender.Female, Skill.Java);
-        User user1 = new User(4, "jim", 29, Gender.Male, Skill.CPP);
+        User user = new User(3, "alice", 29, Gender.Female, Skill.Java, new Date(), new Date());
+        User user1 = new User(4, "jim", 29, Gender.Male, Skill.CPP, new Date(), new Date());
         List<User> list = new ArrayList<>();
         list.add(user);
         list.add(user1);
