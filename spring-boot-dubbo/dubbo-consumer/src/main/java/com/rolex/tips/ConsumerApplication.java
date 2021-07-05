@@ -27,34 +27,17 @@ public class ConsumerApplication {
         SpringApplication.run(ConsumerApplication.class, args);
     }
 
-    @DubboReference(version = "1.0.0")
+    @DubboReference(version = "1.0.0", cluster = "failover", loadbalance = "roundrobin"/*, mock = "return 11"*/)
     private DemoService demoService;
-    @DubboReference(version = "1.0.0", group = "english")
-    private GreetingService englishGreetingService;
-    @DubboReference(version = "1.0.0", group = "chinese")
-    private GreetingService chineseGreetingService;
-    @DubboReference(version = "1.0.0", group = "chinese,english", merger = "true")
-    private GreetingService greetingService;
+
 
     @RequestMapping("/hello/{name}")
     public String sayHello(@PathVariable String name) {
+        demoService.register(name);
         return demoService.sayHello(name);
     }
 
-    @RequestMapping("/greeting/en")
-    public String greeting1() {
-        return englishGreetingService.greeting();
-    }
 
-    @RequestMapping("/greeting/cn")
-    public String greeting2() {
-        return chineseGreetingService.greeting();
-    }
-
-    @RequestMapping("/greeting")
-    public List<String> greeting3() {
-        return greetingService.menus();
-    }
 
 
 }

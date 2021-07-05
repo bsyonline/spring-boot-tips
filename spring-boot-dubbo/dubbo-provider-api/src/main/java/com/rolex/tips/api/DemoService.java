@@ -11,4 +11,6 @@ public interface DemoService {
 
     String sayHello(String name);
 
+    void register(String name);
+
 }

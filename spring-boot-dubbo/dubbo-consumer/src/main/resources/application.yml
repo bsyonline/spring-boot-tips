@@ -11,6 +11,7 @@ dubbo:
   consumer:
     check: false
     loadbalance: roundrobin
+    mock: true
   application:
     name: ${spring.application.name}
 spring:
