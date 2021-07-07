@@ -11,7 +11,7 @@ import org.springframework.beans.factory.annotation.Value;
  * @author rolex
  * @since 2020
  */
-@DubboService(version = "1.0.0")
+@DubboService(version = "1.0.0", delay = 500, executes = 10, actives = 10, connections = 10/*, registry = {"beijing, shanghai"}*/)
 public class DemoServiceImpl implements DemoService {
     @Value("${dubbo.application.name}")
     private String serviceName;

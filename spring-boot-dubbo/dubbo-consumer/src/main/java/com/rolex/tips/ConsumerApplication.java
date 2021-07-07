@@ -4,7 +4,6 @@
 package com.rolex.tips;
 
 import com.rolex.tips.api.DemoService;
-import com.rolex.tips.api.GreetingService;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.dubbo.config.annotation.DubboReference;
 import org.springframework.boot.SpringApplication;
@@ -12,8 +11,6 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
-
-import java.util.List;
 
 /**
  * @author rolex
@@ -27,7 +24,7 @@ public class ConsumerApplication {
         SpringApplication.run(ConsumerApplication.class, args);
     }
 
-    @DubboReference(version = "1.0.0", cluster = "failover", loadbalance = "roundrobin"/*, mock = "return 11"*/)
+    @DubboReference(version = "1.0.0", /*registry = {"beijing", "shanghai"}, */sticky = true, lazy = true, cluster = "failover", loadbalance = "roundrobin"/*, mock = "return 11"*/, actives = 10, connections = 10)
     private DemoService demoService;
 
 
@@ -36,8 +33,6 @@ public class ConsumerApplication {
         demoService.register(name);
         return demoService.sayHello(name);
     }
-
-
 
 
 }

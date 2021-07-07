@@ -5,7 +5,7 @@
        http://dubbo.apache.org/schema/dubbo http://dubbo.apache.org/schema/dubbo/dubbo.xsd">
     <dubbo:application name="demo-provider"/>
     <dubbo:registry address="zookeeper://127.0.0.1:2181"/>
-    <dubbo:protocol name="dubbo" port="20890"/>
+    <dubbo:protocol name="dubbo" port="20890" accepts="10"/>
     <bean id="demoService" class="com.rolex.tips.service.DemoServiceImpl"/>
 
     <dubbo:service interface="com.rolex.tips.api.DemoService" ref="demoService" weight="1"/>

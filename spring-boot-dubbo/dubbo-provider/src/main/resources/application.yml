@@ -1,10 +1,23 @@
 server:
   port: 8088
 dubbo:
+  # 单注册中心
   registry:
     protocol: zookeeper
     address: zookeeper://127.0.0.1:2181
     port: 2181
+  # 多注册中心
+#  registries:
+#    beijing:
+#      register: false #默认true, false:表示服务不注册到注册中心
+#      protocol: zookeeper
+#      address: zookeeper://127.0.0.1:2181
+#      port: 2181
+#    shanghai:
+#      register: false #默认true, false:表示服务不注册到注册中心
+#      protocol: zookeeper
+#      address: zookeeper://127.0.0.1:2181
+#      port: 2181
   protocol:
     name: dubbo
     port: 20890
