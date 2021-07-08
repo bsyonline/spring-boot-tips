@@ -7,3 +7,5 @@ spring:
       value-deserializer: org.apache.kafka.common.serialization.StringDeserializer
     listener:
       ack-mode: manual
+kafka:
+  topic: test_01

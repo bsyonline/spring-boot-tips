@@ -1,0 +1,21 @@
+spring:
+  application:
+    name: rabbit-consumer01
+  rabbitmq:
+    username: guest
+    password: guest
+    host: localhost
+    port: 5672
+    listener:
+      simple:
+        acknowledge-mode: manual
+        retry:
+          enabled: true
+          max-attempts: 3
+      direct:
+        acknowledge-mode: manual
+    template:
+      mandatory: true
+
+server:
+  port: 0
