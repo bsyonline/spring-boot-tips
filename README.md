@@ -6,17 +6,17 @@
 
 ## 目录
 
-| 序号 | 名称                         			| 说明                                     |
-| ---- | -------------------------------------- | ---------------------------------------- |
-| 1    | spring-boot-mybatis          			| spring boot 集成 mybatis                 |
-| 2    | spring-boot-mybatis-plus     			| spring boot 集成 mybatis plus            |
-| 3    | spring-boot-jpa              			| spring boot jpa                          |
-| 4    | spring-boot-multi-datasource 			| spring boot mybatis 多数据源             |
-| 5    | spring-boot-redis            			| spring boot redisTemplate 示例           |
-| 6    | spring-boot-redisson         			| spring boot 集成 redisson ，分布式锁示例 |
-| 7    | spring-boot-cache            			| spring boot cache 示例 				   |
-| 8    | spring-boot-cache-annotation  			| 模拟 spring boot cache 自己写一个缓存注解|
-| 9    | spring-boot-file-upload    			| 文件上传下载示例						   |
+| 序号 | 名称                         			| 说明                                     								|
+| ---- | -------------------------------------- | --------------------------------------------------------------------- |
+| 1    | spring-boot-mybatis          			| spring boot 集成 mybatis                 								|
+| 2    | spring-boot-mybatis-plus     			| spring boot 集成 mybatis plus            								|
+| 3    | spring-boot-jpa              			| spring boot jpa                          								|
+| 4    | spring-boot-multi-datasource 			| spring boot mybatis 多数据源             								|
+| 5    | spring-boot-redis            			| spring boot redisTemplate 示例           								|
+| 6    | spring-boot-redisson         			| spring boot 集成 redisson ，分布式锁示例 								|
+| 7    | spring-boot-cache            			| spring boot cache 示例 				   								|
+| 8    | spring-boot-cache-annotation  			| 模拟 spring boot cache 自己写一个缓存注解								|
+| 9    | spring-boot-file-upload    			| 文件上传下载示例						   								|
 | 10   | spring-boot-zookeeper        			| spring boot 集成 zookeeper ，curator api 的使用示例和 zk 分布式锁示例 |
 | 11   | spring-boot-mongodb          			| spring boot 集成 mongodb 示例 |
 |      | spring-boot-scheduler        			| spring boot scheduler 示例 |
@@ -47,6 +47,9 @@
 |      | spring-boot-security         			|                                          |
 |      | spring-boot-dubbo            			| spring boot 集成 dubbo |
 |      |  						      			|                                          |
+|      | spring-boot-trace            			| spring boot 链路跟踪示例              								|
+|      | spring-boot-jasypt | spring boot 集成 jasypt 示例 |
+
 
 
 
