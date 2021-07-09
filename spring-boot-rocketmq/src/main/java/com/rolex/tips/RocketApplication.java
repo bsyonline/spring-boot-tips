@@ -11,6 +11,10 @@ import com.rolex.tips.service.ProducerService;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.rocketmq.client.exception.MQBrokerException;
 import org.apache.rocketmq.client.exception.MQClientException;
+import org.apache.rocketmq.client.producer.DefaultMQProducer;
+import org.apache.rocketmq.client.producer.SendResult;
+import org.apache.rocketmq.common.message.Message;
+import org.apache.rocketmq.remoting.common.RemotingHelper;
 import org.apache.rocketmq.remoting.exception.RemotingException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.SpringApplication;
@@ -20,6 +24,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.io.UnsupportedEncodingException;
+import java.nio.charset.StandardCharsets;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
@@ -104,4 +109,23 @@ public class RocketApplication {
         }
         return "OK";
     }
+
+    @GetMapping("/testDLQ/{msg}")
+    public String testDLQ(@PathVariable("msg")String msg) throws Exception {
+
+        MessageDTO mqMessageDTO = new MessageDTO();
+        mqMessageDTO.setTopic("hello");
+        mqMessageDTO.setTag("");
+        mqMessageDTO.setContent(JSON.toJSONString((msg+"_111")).getBytes(StandardCharsets.UTF_8));
+        boolean success = producerService.sendMessage(mqMessageDTO);
+        System.out.println(success);
+        MessageDTO mqMessageDTO1 = new MessageDTO();
+        mqMessageDTO1.setTopic("world");
+        mqMessageDTO1.setTag("");
+        mqMessageDTO1.setContent(JSON.toJSONString((msg+"_222")).getBytes(StandardCharsets.UTF_8));
+        boolean success1 = producerService.sendMessage(mqMessageDTO1);
+        System.out.println(success1);
+        return "OK";
+    }
+
 }
