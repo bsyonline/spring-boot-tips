@@ -153,4 +153,10 @@ public class UserMapperTest {
         List<Map<Integer, Integer>> list = userMapper.groupByColumn("age");
         System.out.println(list);
     }
+
+    @Test
+    public void testQuery1() {
+        List<User> list = userMapper.testQuery(3);
+        System.out.println(list);
+    }
 }

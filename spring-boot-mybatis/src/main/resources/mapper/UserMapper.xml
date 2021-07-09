@@ -104,4 +104,8 @@
     <select id="groupByColumn" parameterType="java.lang.String" resultMap="groupByColumnResultMap">
         select age, count(*) as count from t_user group by ${columnName}
     </select>
+
+    <select id="testQuery" resultType="com.rolex.tips.entity.User">
+        select * from t_user limit #{num}
+    </select>
 </mapper>

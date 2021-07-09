@@ -48,4 +48,6 @@ public interface UserMapper {
 
     List<Map<Integer, Integer>> groupByColumn(@Param("columnName") String columnName);
 
+    List<User> testQuery(@Param("num") Integer num);
+
 }
