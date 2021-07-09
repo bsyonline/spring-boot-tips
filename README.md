@@ -49,6 +49,7 @@
 | 39 | spring-boot-dubbo            			| spring boot 集成 dubbo 示例              								|
 | 40 | spring-boot-trace            			| spring boot 链路跟踪示例              								|
 | 41 | spring-boot-jasypt | spring boot 集成 jasypt 示例 |
+| 42 | spring-boot-i18n | spring boot 国际化示例 |
 
 
 
