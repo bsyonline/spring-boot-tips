@@ -9,6 +9,7 @@
         <module>dubbo-provider-v2</module>
         <module>dubbo-consumer</module>
         <module>dubbo-provider-api</module>
+        <module>dubbo-spi</module>
     </modules>
     <parent>
         <artifactId>spring-boot-starter-parent</artifactId>

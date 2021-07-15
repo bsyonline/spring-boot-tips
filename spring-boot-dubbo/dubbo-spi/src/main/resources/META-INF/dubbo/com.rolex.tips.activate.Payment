@@ -1,0 +1,5 @@
+aliPay=com.rolex.tips.activate.AliPay
+weChatPay=com.rolex.tips.activate.WeChatPay
+cardPay=com.rolex.tips.activate.CardPay
+cashPay=com.rolex.tips.activate.CashPay
+jdPay=com.rolex.tips.activate.JDPay
