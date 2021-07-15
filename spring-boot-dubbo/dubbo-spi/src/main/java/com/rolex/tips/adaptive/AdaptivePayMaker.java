@@ -1,6 +1,7 @@
 package com.rolex.tips.adaptive;
 
 import org.apache.dubbo.common.URL;
+import org.apache.dubbo.common.extension.Adaptive;
 import org.apache.dubbo.common.extension.ExtensionLoader;
 
 /**
@@ -11,6 +12,7 @@ import org.apache.dubbo.common.extension.ExtensionLoader;
  * @author rolex
  * @since 2021
  */
+@Adaptive
 public class AdaptivePayMaker implements Payment {
     @Override
     public void pay(URL url) {

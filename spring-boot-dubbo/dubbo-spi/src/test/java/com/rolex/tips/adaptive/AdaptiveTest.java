@@ -1,6 +1,5 @@
-package com.rolex.tips.adapter;
+package com.rolex.tips.adaptive;
 
-import com.rolex.tips.adaptive.Payment;
 import org.apache.dubbo.common.URL;
 import org.apache.dubbo.common.extension.ExtensionLoader;
 import org.junit.jupiter.api.Test;
@@ -57,6 +56,14 @@ public class AdaptiveTest {
             SPI default 生效
          */
         URL url = URL.valueOf("dubbo://localhost:20880?key2=meizuPay");
+        ExtensionLoader<Payment> payments = ExtensionLoader.getExtensionLoader(Payment.class);
+        Payment payment = payments.getAdaptiveExtension();
+        payment.pay(url);
+    }
+
+    @Test
+    public void test5() {
+        URL url = URL.valueOf("dubbo://localhost:20880?payment.maker=aliPay");
         ExtensionLoader<Payment> payments = ExtensionLoader.getExtensionLoader(Payment.class);
         Payment payment = payments.getAdaptiveExtension();
         payment.pay(url);
