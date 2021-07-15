@@ -1,7 +1,7 @@
 package com.rolex.tips.adaptive;
 
+import lombok.extern.slf4j.Slf4j;
 import org.apache.dubbo.common.URL;
-import org.apache.dubbo.common.extension.Adaptive;
 import org.apache.dubbo.common.extension.ExtensionLoader;
 
 /**
@@ -12,10 +12,11 @@ import org.apache.dubbo.common.extension.ExtensionLoader;
  * @author rolex
  * @since 2021
  */
-@Adaptive
+//@Adaptive
+@Slf4j
 public class AdaptivePayMaker implements Payment {
     @Override
-    public void pay(URL url) {
+    public void adaptivePay(URL url) {
         if (url == null) {
             throw new IllegalArgumentException("url == null");
         }
@@ -30,6 +31,11 @@ public class AdaptivePayMaker implements Payment {
         Payment paymentMaker = ExtensionLoader.getExtensionLoader(Payment.class).getExtension(paymentMakerName);
 
         // 3.调用目标方法
-        paymentMaker.pay(url);
+        paymentMaker.adaptivePay(url);
+    }
+
+    @Override
+    public void unadaptivePay() {
+        log.info("adaptivePay-AdaptivePayMaker");
     }
 }

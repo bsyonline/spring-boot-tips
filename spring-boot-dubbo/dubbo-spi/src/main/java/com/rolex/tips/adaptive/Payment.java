@@ -15,5 +15,7 @@ import org.apache.dubbo.common.extension.SPI;
 @SPI("weChatPay")
 public interface Payment {
     @Adaptive(value = "key1")
-    void pay(URL url);
+    void adaptivePay(URL url);
+
+    void unadaptivePay();
 }

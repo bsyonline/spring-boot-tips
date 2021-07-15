@@ -15,7 +15,12 @@ import org.apache.dubbo.common.extension.Adaptive;
 @Slf4j
 public class AliPay implements Payment {
     @Override
-    public void pay(URL url) {
-        log.info("支付宝支付");
+    public void adaptivePay(URL url) {
+        log.info("adaptivePay-支付宝支付");
+    }
+
+    @Override
+    public void unadaptivePay() {
+        log.info("unadaptivePay-支付宝支付");
     }
 }

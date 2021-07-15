@@ -14,7 +14,12 @@ import org.apache.dubbo.common.URL;
 @Slf4j
 public class MeizuPay implements Payment {
     @Override
-    public void pay(URL url) {
-        log.info("魅族支付");
+    public void adaptivePay(URL url) {
+        log.info("adaptivePay-魅族支付");
+    }
+
+    @Override
+    public void unadaptivePay() {
+        log.info("unadaptivePay-魅族支付");
     }
 }

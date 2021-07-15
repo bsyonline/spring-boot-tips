@@ -16,7 +16,12 @@ import org.apache.dubbo.common.extension.Adaptive;
 //@Adaptive
 public class JDPay implements Payment {
     @Override
-    public void pay(URL url) {
-        log.info("京东白条支付");
+    public void adaptivePay(URL url) {
+        log.info("adaptivePay-京东白条支付");
+    }
+
+    @Override
+    public void unadaptivePay() {
+        log.info("unadaptivePay-京东白条支付");
     }
 }

@@ -14,7 +14,12 @@ import org.apache.dubbo.common.URL;
 @Slf4j
 public class WeChatPay implements Payment {
     @Override
-    public void pay(URL url) {
-        log.info("微信支付");
+    public void adaptivePay(URL url) {
+        log.info("adaptivePay-微信支付");
+    }
+
+    @Override
+    public void unadaptivePay() {
+        log.info("unadaptivePay-微信支付");
     }
 }

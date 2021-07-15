@@ -22,7 +22,7 @@ public class AdaptiveTest {
         URL url = URL.valueOf("dubbo://localhost:20880");
         ExtensionLoader<Payment> payments = ExtensionLoader.getExtensionLoader(Payment.class);
         Payment payment = payments.getAdaptiveExtension();
-        payment.pay(url);
+        payment.adaptivePay(url);
     }
 
     @Test
@@ -34,7 +34,7 @@ public class AdaptiveTest {
         URL url = URL.valueOf("dubbo://localhost:20880?key1=aliPay");
         ExtensionLoader<Payment> payments = ExtensionLoader.getExtensionLoader(Payment.class);
         Payment payment = payments.getAdaptiveExtension();
-        payment.pay(url);
+        payment.adaptivePay(url);
     }
 
     @Test
@@ -46,7 +46,7 @@ public class AdaptiveTest {
         URL url = URL.valueOf("dubbo://localhost:20880?key1=aliPay");
         ExtensionLoader<Payment> payments = ExtensionLoader.getExtensionLoader(Payment.class);
         Payment payment = payments.getAdaptiveExtension();
-        payment.pay(url);
+        payment.adaptivePay(url);
     }
 
     @Test
@@ -58,14 +58,17 @@ public class AdaptiveTest {
         URL url = URL.valueOf("dubbo://localhost:20880?key2=meizuPay");
         ExtensionLoader<Payment> payments = ExtensionLoader.getExtensionLoader(Payment.class);
         Payment payment = payments.getAdaptiveExtension();
-        payment.pay(url);
+        payment.adaptivePay(url);
+        payment.unadaptivePay();
     }
 
     @Test
     public void test5() {
-        URL url = URL.valueOf("dubbo://localhost:20880?payment.maker=aliPay");
+        URL url = URL.valueOf("dubbo://localhost:20880");
+//        URL url = URL.valueOf("dubbo://localhost:20880?payment.maker=aliPay");
         ExtensionLoader<Payment> payments = ExtensionLoader.getExtensionLoader(Payment.class);
+//        Payment payment = payments.getExtension("meizuPay");
         Payment payment = payments.getAdaptiveExtension();
-        payment.pay(url);
+        payment.unadaptivePay();
     }
 }
