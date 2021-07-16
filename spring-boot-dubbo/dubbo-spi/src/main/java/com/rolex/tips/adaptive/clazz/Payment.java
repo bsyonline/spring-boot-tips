@@ -1,7 +1,6 @@
-package com.rolex.tips.adaptive;
+package com.rolex.tips.adaptive.clazz;
 
 import org.apache.dubbo.common.URL;
-import org.apache.dubbo.common.extension.Adaptive;
 import org.apache.dubbo.common.extension.SPI;
 
 /**
@@ -12,9 +11,9 @@ import org.apache.dubbo.common.extension.SPI;
  * @author rolex
  * @since 2021
  */
-@SPI("weChatPay")
+@SPI
 public interface Payment {
-    @Adaptive(value = "key1")
+
     void adaptivePay(URL url);
 
     void unadaptivePay();

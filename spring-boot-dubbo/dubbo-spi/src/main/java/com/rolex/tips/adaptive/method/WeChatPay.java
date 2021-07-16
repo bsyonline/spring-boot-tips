@@ -1,8 +1,7 @@
-package com.rolex.tips.adaptive;
+package com.rolex.tips.adaptive.method;
 
 import lombok.extern.slf4j.Slf4j;
 import org.apache.dubbo.common.URL;
-import org.apache.dubbo.common.extension.Adaptive;
 
 /**
  * <P>
@@ -13,14 +12,14 @@ import org.apache.dubbo.common.extension.Adaptive;
  * @since 2021
  */
 @Slf4j
-public class AliPay implements Payment {
+public class WeChatPay implements Payment {
     @Override
     public void adaptivePay(URL url) {
-        log.info("adaptivePay-支付宝支付");
+        log.info("adaptivePay-微信支付");
     }
 
     @Override
     public void unadaptivePay() {
-        log.info("unadaptivePay-支付宝支付");
+        log.info("unadaptivePay-微信支付");
     }
 }

@@ -1,4 +1,4 @@
-package com.rolex.tips.adaptive;
+package com.rolex.tips.adaptive.clazz;
 
 import lombok.extern.slf4j.Slf4j;
 import org.apache.dubbo.common.URL;

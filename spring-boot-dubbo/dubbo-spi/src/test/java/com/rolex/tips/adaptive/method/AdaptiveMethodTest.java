@@ -1,4 +1,4 @@
-package com.rolex.tips.adaptive;
+package com.rolex.tips.adaptive.method;
 
 import org.apache.dubbo.common.URL;
 import org.apache.dubbo.common.extension.ExtensionLoader;
@@ -12,7 +12,7 @@ import org.junit.jupiter.api.Test;
  * @author rolex
  * @since 2021
  */
-public class AdaptiveTest {
+public class AdaptiveMethodTest {
     @Test
     public void test1() {
         /*
@@ -28,22 +28,10 @@ public class AdaptiveTest {
     @Test
     public void test2() {
         /*
-            URL中指定
+            @Adaptive 没指定 value = "payType"， URL中指定指定的key为接口的名字
             URL指定的生效
          */
-        URL url = URL.valueOf("dubbo://localhost:20880?key1=aliPay");
-        ExtensionLoader<Payment> payments = ExtensionLoader.getExtensionLoader(Payment.class);
-        Payment payment = payments.getAdaptiveExtension();
-        payment.adaptivePay(url);
-    }
-
-    @Test
-    public void test3() {
-        /*
-            URL中指定
-            实现类加@Adaptive的生效
-         */
-        URL url = URL.valueOf("dubbo://localhost:20880?key1=aliPay");
+        URL url = URL.valueOf("dubbo://localhost:20880?payment=aliPay");
         ExtensionLoader<Payment> payments = ExtensionLoader.getExtensionLoader(Payment.class);
         Payment payment = payments.getAdaptiveExtension();
         payment.adaptivePay(url);
@@ -52,23 +40,23 @@ public class AdaptiveTest {
     @Test
     public void test4() {
         /*
-            URL和接口@Adaptive(value = "key1")的value不匹配
-            SPI default 生效
+            @Adaptive 指定 value = "payType"，URL中指定指定的key为接口的名字，不生效
          */
-        URL url = URL.valueOf("dubbo://localhost:20880?key2=meizuPay");
+        URL url = URL.valueOf("dubbo://localhost:20880?payment=aliPay");
         ExtensionLoader<Payment> payments = ExtensionLoader.getExtensionLoader(Payment.class);
         Payment payment = payments.getAdaptiveExtension();
         payment.adaptivePay(url);
-        payment.unadaptivePay();
     }
 
     @Test
     public void test5() {
-        URL url = URL.valueOf("dubbo://localhost:20880");
-//        URL url = URL.valueOf("dubbo://localhost:20880?payment.maker=aliPay");
+        /*
+            @Adaptive 指定 value = "payType"，URL中指定指定的key为payType，生效
+         */
+        URL url = URL.valueOf("dubbo://localhost:20880?payType=aliPay");
         ExtensionLoader<Payment> payments = ExtensionLoader.getExtensionLoader(Payment.class);
-//        Payment payment = payments.getExtension("meizuPay");
         Payment payment = payments.getAdaptiveExtension();
-        payment.unadaptivePay();
+        payment.adaptivePay(url);
     }
+
 }

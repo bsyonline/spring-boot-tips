@@ -1,5 +1,0 @@
-aliPay=com.rolex.tips.adaptive.AliPay
-weChatPay=com.rolex.tips.adaptive.WeChatPay
-jdPay=com.rolex.tips.adaptive.JDPay
-meizuPay=com.rolex.tips.adaptive.MeizuPay
-#adaptive=com.rolex.tips.adaptive.AdaptivePayMaker

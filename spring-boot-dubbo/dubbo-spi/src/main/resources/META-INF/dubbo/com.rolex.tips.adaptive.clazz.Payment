@@ -1,0 +1,3 @@
+adaptive=com.rolex.tips.adaptive.clazz.AdaptivePay
+aliPay=com.rolex.tips.adaptive.clazz.AliPay
+weChatPay=com.rolex.tips.adaptive.clazz.WeChatPay
