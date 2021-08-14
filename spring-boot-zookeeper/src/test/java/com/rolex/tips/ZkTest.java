@@ -6,6 +6,7 @@ import lombok.extern.slf4j.Slf4j;
 import org.apache.curator.framework.CuratorFramework;
 import org.apache.curator.framework.recipes.cache.ChildData;
 import org.apache.curator.framework.recipes.cache.NodeCache;
+import org.apache.curator.framework.recipes.cache.NodeCacheListener;
 import org.apache.curator.framework.recipes.cache.PathChildrenCache;
 import org.apache.curator.framework.recipes.cache.PathChildrenCacheEvent;
 import org.apache.curator.framework.recipes.cache.TreeCache;
@@ -269,5 +270,49 @@ public class ZkTest {
 
         Thread.sleep(15000);
 
+    }
+
+
+    @Test
+    public void test7() throws InterruptedException {
+        new Thread(() -> {
+            try {
+                selection();
+                Thread.sleep(5000);
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        }, "node1").start();
+        new Thread(() -> {
+            try {
+                selection();
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        }, "node2").start();
+        Thread.sleep(15000);
+    }
+
+    private void selection() throws Exception {
+        String path = "/zk/leader";
+        try {
+            String s = client.create().withMode(CreateMode.EPHEMERAL).forPath(path);
+            System.out.println(Thread.currentThread().getName() + "选举成功成为leader");
+        } catch (Exception e) {
+            System.out.println("选举失败");
+        } finally {
+            NodeCache nodeCache = new NodeCache(client, path);
+            nodeCache.start();
+            nodeCache.getListenable().addListener(new NodeCacheListener() {
+                @Override
+                public void nodeChanged() throws Exception {
+                    ChildData data = nodeCache.getCurrentData();
+                    if (data == null) {
+                        System.out.println(Thread.currentThread().getName() + "宕机，重新选主");
+                        selection();
+                    }
+                }
+            });
+        }
     }
 }
