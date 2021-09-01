@@ -20,4 +20,11 @@ public class WrapperTest {
         Payment payment = payments.getExtension("aliPay");
         payment.pay(url);
     }
+    @Test
+    public void test1() {
+        ExtensionLoader<Payment> payments = ExtensionLoader.getExtensionLoader(Payment.class);
+        URL url = URL.valueOf("dubbo://localhost:20880");
+        Payment payment = payments.getExtension("true");
+        payment.pay(url);
+    }
 }
