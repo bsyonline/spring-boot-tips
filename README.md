@@ -43,7 +43,7 @@
 | 42   | spring-boot-ehcache					| spring boot 集成 ehcache 示例											|
 |  | spring-boot-grpc             			|                                          								|
 |  | spring-boot-hibernate-validator        |                                          								|
-|  | spring-boot-proguard         			|                                          								|
+|  | spring-boot-proguard         			| spring boot 集成 proguard 示例 |
 |  | spring-boot-log        	  			|                                          								|
 |  | spring-cloud-netflix-eureka  			|                                          								|
 |  | spring-cloud-netflix-ribbon  			|                                          								|
