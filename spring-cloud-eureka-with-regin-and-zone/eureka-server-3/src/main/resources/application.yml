@@ -1,0 +1,25 @@
+server:
+  port: 8763
+spring:
+  application:
+    name: eureka-server-03
+eureka:
+  instance:
+    hostname: ${spring.application.name}
+    instance-id: ${spring.cloud.client.ip-address}:${server.port}
+    lease-renewal-interval-in-seconds: 1 #心跳间隔
+    lease-expiration-duration-in-seconds: 3 #3秒没收到心跳就失效
+    metadata-map:
+      zone: us-east-1e #服务属于哪个zone
+  client:
+    region: us-east-1
+    availability-zones:
+      us-east-1: us-east-1e,us-east-1c,us-east-1d #将自己的zone写在前边
+    serviceUrl:
+      us-east-1c: http://eureka-server-01:8761/eureka/
+      us-east-1d: http://eureka-server-02:8762/eureka/
+      us-east-1e: http://eureka-server-03:8763/eureka/
+    prefer-same-zone-eureka: true #优先使用相同zone的服务
+  server:
+    enable-self-preservation: false
+    eviction-interval-timer-in-ms: 1000 #剔除时间间隔
