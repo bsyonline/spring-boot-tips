@@ -1,6 +1,6 @@
 spring:
   zookeeper:
-    connectString: localhost:2181
+    connectString: 192.168.67.201:2181,192.168.67.202:2181,192.168.67.203:2181
     maxRetries: 3 # 最大重试次数
     baseSleepTimeMs: 1000 #初始休眠时间
 
