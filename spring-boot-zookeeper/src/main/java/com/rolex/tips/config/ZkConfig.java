@@ -18,29 +18,29 @@ import org.springframework.context.annotation.Configuration;
  * @since 2021
  */
 @Configuration
-@ConfigurationProperties(prefix = "zk")
+@ConfigurationProperties(prefix = "spring.zookeeper")
 @Data
 public class ZkConfig {
 
     /**
      * 连接地址
      */
-    private String url;
+    private String connectString;
 
     /**
      * 超时时间(毫秒)，默认1000
      */
-    private int timeout = 1000;
+    private int baseSleepTimeMs = 1000;
 
     /**
      * 重试次数，默认3
      */
-    private int retry = 3;
+    private int maxRetries = 3;
 
     @Bean
     public CuratorFramework curatorFramework() {
-        RetryPolicy retryPolicy = new ExponentialBackoffRetry(timeout, retry);
-        CuratorFramework client = CuratorFrameworkFactory.newClient(url, retryPolicy);
+        RetryPolicy retryPolicy = new ExponentialBackoffRetry(baseSleepTimeMs, maxRetries);
+        CuratorFramework client = CuratorFrameworkFactory.newClient(connectString, retryPolicy);
         client.start();
         return client;
     }
