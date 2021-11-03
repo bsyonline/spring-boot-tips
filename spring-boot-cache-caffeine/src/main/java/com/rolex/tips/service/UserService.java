@@ -12,4 +12,10 @@ import com.rolex.tips.model.User;
  */
 public interface UserService {
     User getUser(Long id);
+
+    User getUserById(Long id);
+
+    void evictCache(Long id);
+
+    User create(User user);
 }
