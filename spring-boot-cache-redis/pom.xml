@@ -9,7 +9,7 @@
         <version>2.4.2</version>
     </parent>
     <groupId>com.rolex.tips</groupId>
-    <artifactId>spring-boot-cache</artifactId>
+    <artifactId>spring-boot-cache-redis</artifactId>
     <version>1.0-SNAPSHOT</version>
 
     <properties>
