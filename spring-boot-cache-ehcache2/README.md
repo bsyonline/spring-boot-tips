@@ -1,0 +1,1 @@
+在 [http://localhost:8080/actuator/metrics/](http://localhost:8080/actuator/metrics/) 可以查看cache信息
