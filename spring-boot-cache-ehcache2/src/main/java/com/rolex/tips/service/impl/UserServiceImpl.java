@@ -22,7 +22,7 @@ import org.springframework.stereotype.Service;
  * @since 2021
  */
 @Service
-@CacheConfig(cacheNames = "test-cache")
+@CacheConfig(cacheNames = "test-ehcache2")
 public class UserServiceImpl implements UserService {
 
     @Autowired

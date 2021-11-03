@@ -8,7 +8,7 @@
     <!-- diskPersistent：是否使用磁盘。-->
     <!-- diskExpiryThreadIntervalSeconds：磁盘失效线程运行时间间隔，默认是120秒。-->
     <!-- memoryStoreEvictionPolicy：缓存失效算法。-->
-    <cache name="test-cache"
+    <cache name="test-ehcache2"
             maxElementsInMemory="1000"
             eternal="false"
             timeToIdleSeconds="120"
