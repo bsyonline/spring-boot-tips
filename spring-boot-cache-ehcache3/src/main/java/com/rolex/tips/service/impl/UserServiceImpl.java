@@ -28,7 +28,7 @@ public class UserServiceImpl implements UserService {
 
     @Override
     @Cacheable(value = "test-ehcache3", keyGenerator = "userKeyGenerator")
-    public User getUser1(Long id) {
+    public User getUserById(Long id) {
         log.info("Trying to get user for id {} ", id);
         return new User(id, "John");
     }
@@ -41,7 +41,8 @@ public class UserServiceImpl implements UserService {
 
     @Override
     @CachePut(cacheNames ="test-ehcache3", key = "#user.id")
-    public void create(User user) {
+    public User create(User user) {
         log.info("Creating user {}", user);
+        return user;
     }
 }

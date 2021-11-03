@@ -35,7 +35,7 @@ public class App {
 
     @GetMapping("/users/get")
     public User get(){
-        return userService.getUser1(2L);
+        return userService.getUserById(2L);
     }
 
     @RequestMapping("/users/add")
