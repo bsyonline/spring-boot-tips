@@ -6,6 +6,7 @@ package com.rolex.tips.controller;
 import com.rolex.tips.command.GetGenderCommand;
 import com.rolex.tips.command.GetUserCommand;
 import com.rolex.tips.command.GetUserListCommand;
+import com.rolex.tips.command.UpdateUserCommand;
 import com.rolex.tips.model.User;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -33,6 +34,22 @@ public class UserController {
         return user;
     }
 
+    @GetMapping("/users/batch")
+    public List<User> batch() {
+        List<User> list = new ArrayList<>();
+        Long[] ids = {1L, 1L, 3L, 1L};
+        for (Long id : ids) {
+            GetUserCommand getUserCommand = new GetUserCommand(id);
+            User user = getUserCommand.execute();
+            list.add(user);
+            if (id == 3) {
+                UpdateUserCommand updateUserCommand = new UpdateUserCommand(1L);
+                updateUserCommand.execute();
+            }
+        }
+        return list;
+    }
+
     @GetMapping("/users")
     public List<User> getUser() {
         List<User> list = new ArrayList<>();
@@ -40,7 +57,6 @@ public class UserController {
         GetUserListCommand getUserListCommand = new GetUserListCommand(ids);
         Observable<User> observe = getUserListCommand.observe();
         observe.subscribe(new Observer<User>() { // 等到调用subscribe然后才会执行
-
             public void onCompleted() {
                 System.out.println("获取完了所有的商品数据");
             }
@@ -55,10 +71,7 @@ public class UserController {
                 user.setGenderName(genderName);
                 list.add(user);
             }
-
         });
-
         return list;
     }
-
 }

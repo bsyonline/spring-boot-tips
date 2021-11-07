@@ -9,11 +9,13 @@ import com.netflix.hystrix.HystrixCommandKey;
 import com.netflix.hystrix.HystrixThreadPoolKey;
 import com.netflix.hystrix.HystrixThreadPoolProperties;
 import com.rolex.tips.model.User;
+import lombok.extern.slf4j.Slf4j;
 
 /**
  * @author rolex
  * @since 2021
  */
+@Slf4j
 public class GetUserCommand extends HystrixCommand<User> {
 
     private Long id;
@@ -35,6 +37,12 @@ public class GetUserCommand extends HystrixCommand<User> {
     @Override
     protected User run() throws Exception {
         // remote call
-        return new User(1L, "John", 1, null);
+        log.info("get user from remote service, id={}", id);
+        return new User(id, "user" + id, 1, null);
+    }
+
+    @Override
+    protected String getCacheKey() {
+        return "user_" + id;
     }
 }
