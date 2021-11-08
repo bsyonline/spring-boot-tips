@@ -26,3 +26,10 @@ public void flushCache(Long id) {
             HystrixConcurrencyStrategyDefault.getInstance()).clear("user_" + id);
 }
 ```
+
+fallback
+fallback的几种情况：
+1. 断路器打开
+2. 线程池或信号量满
+3. 执行超时
+4. 执行异常

@@ -5,6 +5,7 @@ package com.rolex.tips.controller;
 
 import com.rolex.tips.command.GetGenderCommand;
 import com.rolex.tips.command.GetUserCommand;
+import com.rolex.tips.command.GetUserFailureCommand;
 import com.rolex.tips.command.GetUserListCommand;
 import com.rolex.tips.command.UpdateUserCommand;
 import com.rolex.tips.model.User;
@@ -34,6 +35,16 @@ public class UserController {
         return user;
     }
 
+    @GetMapping("/users/fallback")
+    public User fallback() {
+        GetUserFailureCommand getUserFailureCommand = new GetUserFailureCommand(1L);
+        User user = getUserFailureCommand.execute();
+        GetGenderCommand getGenderCommand = new GetGenderCommand(user.getGender());
+        String genderName = getGenderCommand.execute();
+        user.setGenderName(genderName);
+        return user;
+    }
+
     @GetMapping("/users/batch")
     public List<User> batch() {
         List<User> list = new ArrayList<>();
@@ -57,14 +68,17 @@ public class UserController {
         GetUserListCommand getUserListCommand = new GetUserListCommand(ids);
         Observable<User> observe = getUserListCommand.observe();
         observe.subscribe(new Observer<User>() { // 等到调用subscribe然后才会执行
+            @Override
             public void onCompleted() {
                 System.out.println("获取完了所有的商品数据");
             }
 
+            @Override
             public void onError(Throwable e) {
                 e.printStackTrace();
             }
 
+            @Override
             public void onNext(User user) {
                 GetGenderCommand getGenderCommand = new GetGenderCommand(user.getGender());
                 String genderName = getGenderCommand.execute();
