@@ -7,16 +7,16 @@ import com.netflix.hystrix.HystrixCommandGroupKey;
 import com.netflix.hystrix.HystrixCommandKey;
 import com.netflix.hystrix.HystrixObservableCommand;
 import com.rolex.tips.model.User;
+import lombok.extern.slf4j.Slf4j;
 import rx.Observable;
 import rx.Subscriber;
-import rx.functions.Func0;
-import rx.observables.SyncOnSubscribe;
 import rx.schedulers.Schedulers;
 
 /**
  * @author rolex
  * @since 2021
  */
+@Slf4j
 public class GetUserListCommand extends HystrixObservableCommand<User> {
 
     private Long[] ids;
@@ -31,9 +31,10 @@ public class GetUserListCommand extends HystrixObservableCommand<User> {
     @Override
     protected Observable<User> construct() {
         return Observable.create(new Observable.OnSubscribe<User>() {
+            @Override
             public void call(Subscriber<? super User> observer) {
                 try {
-                    for(Long id : ids) {
+                    for (Long id : ids) {
                         String url = "http://127.0.0.1:8082/users/" + id;
                         // remote call
                         observer.onNext(new User(id, "John", 1, null));
@@ -44,5 +45,17 @@ public class GetUserListCommand extends HystrixObservableCommand<User> {
                 }
             }
         }).subscribeOn(Schedulers.io());
+    }
+
+    @Override
+    protected Observable<User> resumeWithFallback() {
+        log.info("get user info too slowly and fallback");
+        return Observable.create(new Observable.OnSubscribe<User>() {
+            @Override
+            public void call(Subscriber<? super User> observer) {
+                observer.onNext(new User(-1L, "none", 1, null));
+                observer.onCompleted();
+            }
+        });
     }
 }

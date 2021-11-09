@@ -17,11 +17,11 @@ import lombok.extern.slf4j.Slf4j;
  * @since 2021
  */
 @Slf4j
-public class GetUserFailureCommand extends HystrixCommand<User> {
+public class CircuitBreakerTestCommand extends HystrixCommand<User> {
 
     private Long id;
 
-    public GetUserFailureCommand(Long id) {
+    public CircuitBreakerTestCommand(Long id) {
         super(Setter.withGroupKey(HystrixCommandGroupKey.Factory.asKey("UserService")) // group的名字
                 .andCommandKey(HystrixCommandKey.Factory.asKey("GetUserCommand")) // command的名字，不指定默认就是类名
                 .andThreadPoolKey(HystrixThreadPoolKey.Factory.asKey("GetUserPool")) // 线程池的名字
@@ -50,14 +50,14 @@ public class GetUserFailureCommand extends HystrixCommand<User> {
     protected User run() throws Exception {
         // remote call
         log.info("get user from remote service, id={}", id);
-        Thread.sleep(5000);
-        log.info("get user info too slowly");
+        if (id == -100) {
+            throw new RuntimeException();
+        }
         return new User(id, "user" + id, 1, null);
     }
 
     @Override
     protected User getFallback() {
-        log.info("get user info too slowly and fallback");
-        return new User(-1L, "none", 1, null);
+        return new User(-1L, "降级用户", 1, null);
     }
 }
