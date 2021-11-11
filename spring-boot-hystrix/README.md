@@ -54,3 +54,8 @@ Setter.withGroupKey(HystrixCommandGroupKey.Factory.asKey("UserService"))
         .withCircuitBreakerErrorThresholdPercentage(50) // 经过短路器的异常请求比例，默认50
 ) 
 ```
+
+timeout
+```java
+.withExecutionTimeoutInMilliseconds(1000)
+```
