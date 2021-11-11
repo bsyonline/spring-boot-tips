@@ -59,3 +59,18 @@ timeout
 ```java
 .withExecutionTimeoutInMilliseconds(1000)
 ```
+
+HystrixCollapser
+可以将多个command合并到一个command中执行，发送一次网络请求，以提高并发，但是会有一定的响应延迟增加。
+合并的级别：
+global context: 全局的
+user request context: 一个请求线程内的多个command进行合并
+object modeling：基于对象的请求合并
+
+Collapser配置
+```java
+Setter.withCollapserKey(HystrixCollapserKey.Factory.asKey("GetUserInfosCollapser"))
+        .andCollapserPropertiesDefaults(HystrixCollapserProperties.Setter()
+                   .withMaxRequestsInBatch(100)
+                   .withTimerDelayInMilliseconds(20))
+```
