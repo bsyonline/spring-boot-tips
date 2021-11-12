@@ -1,5 +1,5 @@
 import com.netflix.hystrix.strategy.concurrency.HystrixRequestContext;
-import com.rolex.tips.command.CollapserTestCommand;
+import com.rolex.tips.command.test.CollapserTestCommand;
 import com.rolex.tips.model.User;
 
 import java.util.ArrayList;

@@ -1,7 +1,7 @@
 /*
  * Copyright (C) 2021 bsyonline
  */
-package com.rolex.tips.command;
+package com.rolex.tips.command.test;
 
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;

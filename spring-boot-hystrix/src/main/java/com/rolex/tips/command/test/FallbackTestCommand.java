@@ -1,7 +1,7 @@
 /*
  * Copyright (C) 2021 bsyonline
  */
-package com.rolex.tips.command;
+package com.rolex.tips.command.test;
 
 import com.netflix.hystrix.HystrixCommand;
 import com.netflix.hystrix.HystrixCommandGroupKey;
@@ -17,11 +17,11 @@ import lombok.extern.slf4j.Slf4j;
  * @since 2021
  */
 @Slf4j
-public class GetUserFailureCommand extends HystrixCommand<User> {
+public class FallbackTestCommand extends HystrixCommand<User> {
 
     private Long id;
 
-    public GetUserFailureCommand(Long id) {
+    public FallbackTestCommand(Long id) {
         super(Setter.withGroupKey(HystrixCommandGroupKey.Factory.asKey("UserService")) // group的名字
                 .andCommandKey(HystrixCommandKey.Factory.asKey("GetUserCommand")) // command的名字，不指定默认就是类名
                 .andThreadPoolKey(HystrixThreadPoolKey.Factory.asKey("GetUserPool")) // 线程池的名字

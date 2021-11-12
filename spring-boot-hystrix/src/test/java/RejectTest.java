@@ -1,4 +1,4 @@
-import com.rolex.tips.command.RejectTestCommand;
+import com.rolex.tips.command.test.RejectTestCommand;
 import com.rolex.tips.model.User;
 
 /**

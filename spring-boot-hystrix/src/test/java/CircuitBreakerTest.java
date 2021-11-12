@@ -1,4 +1,4 @@
-import com.rolex.tips.command.CircuitBreakerTestCommand;
+import com.rolex.tips.command.test.CircuitBreakerTestCommand;
 import com.rolex.tips.model.User;
 
 /**

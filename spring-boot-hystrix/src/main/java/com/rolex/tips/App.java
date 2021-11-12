@@ -28,8 +28,4 @@ public class App {
         return filterRegistrationBean;
     }
 
-    @Bean
-    RestTemplate restTemplate() {
-        return new RestTemplate();
-    }
 }

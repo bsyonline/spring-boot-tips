@@ -1,4 +1,4 @@
-import com.rolex.tips.command.TimeoutTestCommand;
+import com.rolex.tips.command.test.TimeoutTestCommand;
 import com.rolex.tips.model.User;
 
 /**

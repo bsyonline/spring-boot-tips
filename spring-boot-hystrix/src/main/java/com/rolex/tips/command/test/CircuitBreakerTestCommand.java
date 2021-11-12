@@ -1,7 +1,7 @@
 /*
  * Copyright (C) 2021 bsyonline
  */
-package com.rolex.tips.command;
+package com.rolex.tips.command.test;
 
 import com.netflix.hystrix.HystrixCommand;
 import com.netflix.hystrix.HystrixCommandGroupKey;
