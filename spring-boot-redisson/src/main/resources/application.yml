@@ -6,3 +6,5 @@ spring:
     database: 0
     timeout: 5000
     password:
+  application:
+    name: node1
