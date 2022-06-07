@@ -17,7 +17,7 @@ public class ProducerTest {
         //Instantiate with a producer group name.
         DefaultMQProducer producer = new DefaultMQProducer("myGroup1");
         // Specify name server addresses.
-        producer.setNamesrvAddr("node1:9876");
+        producer.setNamesrvAddr("10.69.69.232:9876");
         //Launch the instance.
         producer.start();
         Message msg = new Message("hello102" /* Topic */,
