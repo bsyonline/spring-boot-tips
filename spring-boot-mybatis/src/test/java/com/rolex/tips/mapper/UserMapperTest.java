@@ -102,8 +102,8 @@ public class UserMapperTest {
 
     @Test
     public void bulkUpdate() {
-        User user = new User(3, "alice", 29, Gender.Female, Skill.Java, new Date(), new Date());
-        User user1 = new User(4, "jim", 29, Gender.Male, Skill.CPP, new Date(), new Date());
+        User user = new User("alice", 29, Gender.Female, Skill.Java, new Date(), new Date());
+        User user1 = new User("jim", 29, Gender.Male, Skill.CPP, new Date(), new Date());
         List<User> list = new ArrayList<>();
         list.add(user);
         list.add(user1);

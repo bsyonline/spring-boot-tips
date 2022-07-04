@@ -5,6 +5,7 @@ package com.rolex.tips.handler;
 
 import com.rolex.tips.entity.Skill;
 import org.apache.ibatis.type.*;
+import org.springframework.stereotype.Component;
 
 import java.sql.CallableStatement;
 import java.sql.PreparedStatement;
@@ -15,6 +16,7 @@ import java.sql.SQLException;
  * @author rolex
  * @since 2020
  */
+@Component
 @MappedJdbcTypes({JdbcType.VARCHAR})
 @MappedTypes({Skill.class})
 public class SkillHandler extends BaseTypeHandler<Skill> {

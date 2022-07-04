@@ -11,6 +11,7 @@
         <result column="skill" property="skill"/>
         <result column="create_time" property="createTime"/>
         <result column="update_time" property="updateTime"/>
+        <collection property="roles" column="id" select="com.rolex.tips.mapper.UserRoleMapper.getRolesByUserId"/>
     </resultMap>
 
     <select id="findByCondition" parameterType="com.rolex.tips.vo.UserVO" resultMap="userMap">
@@ -26,7 +27,7 @@
     </select>
 
     <select id="findByAnyCondition" parameterType="com.rolex.tips.vo.UserVO" resultMap="userMap">
-        select id, name, age, gender, skill create_time, update_time from t_user
+        select id, name, age, gender, skill, create_time, update_time from t_user
         <where>
             <choose>
                 <when test="name != null">and name=#{name}</when>
@@ -50,10 +51,10 @@
 
     <insert id="batchSave">
         insert into t_user
-        (name, age, gender, skill)
+        (name, age, gender, skill, create_time, update_time)
         values
         <foreach collection="list" item="user" index="index" separator=",">
-            (#{user.name}, #{user.age}, #{user.gender}, #{user.skill} )
+            (#{user.name}, #{user.age}, #{user.gender}, #{user.skill}, #{user.createTime}, #{user.updateTime} )
         </foreach>
     </insert>
 

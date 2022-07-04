@@ -20,7 +20,7 @@ import java.util.Map;
 @Mapper // 和@MapperScan二选一
 public interface UserMapper {
 
-    @Insert("insert into t_user (name, age, gender, skill) values (#{name}, #{age}, #{gender}, #{skill})")
+    @Insert("insert into t_user (name, age, gender, skill, create_time, update_time) values (#{name}, #{age}, #{gender}, #{skill}, #{createTime}, #{updateTime})")
     int save(User user);
 
     @Select("select id, name, age, gender, skill from t_user")
