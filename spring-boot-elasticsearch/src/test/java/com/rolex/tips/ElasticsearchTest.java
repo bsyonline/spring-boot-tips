@@ -14,8 +14,6 @@ import org.elasticsearch.action.get.GetResponse;
 import org.elasticsearch.action.index.IndexRequest;
 import org.elasticsearch.action.index.IndexResponse;
 import org.elasticsearch.action.main.MainResponse;
-import org.elasticsearch.action.search.ClearScrollRequest;
-import org.elasticsearch.action.search.ClearScrollResponse;
 import org.elasticsearch.action.search.SearchRequest;
 import org.elasticsearch.action.search.SearchResponse;
 import org.elasticsearch.action.search.SearchScrollRequest;
@@ -27,13 +25,9 @@ import org.elasticsearch.client.Requests;
 import org.elasticsearch.client.RestHighLevelClient;
 import org.elasticsearch.client.indices.CreateIndexRequest;
 import org.elasticsearch.client.indices.CreateIndexResponse;
-import org.elasticsearch.common.settings.Settings;
 import org.elasticsearch.common.unit.TimeValue;
-import org.elasticsearch.common.xcontent.XContentBuilder;
-import org.elasticsearch.common.xcontent.XContentFactory;
 import org.elasticsearch.common.xcontent.XContentType;
 import org.elasticsearch.index.query.BoolQueryBuilder;
-import org.elasticsearch.index.query.QueryBuilder;
 import org.elasticsearch.index.query.QueryBuilders;
 import org.elasticsearch.search.Scroll;
 import org.elasticsearch.search.SearchHit;
@@ -57,7 +51,6 @@ import java.util.Arrays;
 import java.util.List;
 import java.util.Map;
 import java.util.Random;
-import java.util.stream.Collectors;
 import java.util.stream.LongStream;
 
 /**
@@ -265,5 +258,16 @@ public class ElasticsearchTest {
         DeleteIndexRequest request = new DeleteIndexRequest(index);
         AcknowledgedResponse acknowledgedResponse = restHighLevelClient.indices().delete(request, RequestOptions.DEFAULT);
         log.info("{}", acknowledgedResponse.isAcknowledged());
+    }
+
+    @Test
+    public void test10() throws IOException, InterruptedException {
+        for (int i = 0; i < 10000; i++) {
+            GetRequest request = new GetRequest("user", "_doc", "14");
+            GetResponse getResponse = restHighLevelClient.get(request, RequestOptions.DEFAULT);
+            log.info("第{}次查询：{}", (i + 1), getResponse);
+            restHighLevelClient.close();
+            Thread.sleep(2000);
+        }
     }
 }

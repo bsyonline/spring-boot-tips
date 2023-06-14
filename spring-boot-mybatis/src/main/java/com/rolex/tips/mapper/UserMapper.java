@@ -23,6 +23,8 @@ public interface UserMapper {
     @Insert("insert into t_user (name, age, gender, skill, create_time, update_time) values (#{name}, #{age}, #{gender}, #{skill}, #{createTime}, #{updateTime})")
     int save(User user);
 
+    User findById(int id);
+
     @Select("select id, name, age, gender, skill from t_user")
     List<User> findAll();
 

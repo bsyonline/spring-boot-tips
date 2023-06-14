@@ -12,7 +12,12 @@
         <result column="create_time" property="createTime"/>
         <result column="update_time" property="updateTime"/>
         <collection property="roles" column="id" select="com.rolex.tips.mapper.UserRoleMapper.getRolesByUserId"/>
+        <collection property="tags" column="id" select="com.rolex.tips.mapper.TagMapMapper.getTagsByUserId"/>
     </resultMap>
+
+    <select id="findById" resultMap="userMap">
+        select * from t_user where id=#{userId}
+    </select>
 
     <select id="findByCondition" parameterType="com.rolex.tips.vo.UserVO" resultMap="userMap">
         select id, name, age, gender, skill, create_time, update_time from t_user

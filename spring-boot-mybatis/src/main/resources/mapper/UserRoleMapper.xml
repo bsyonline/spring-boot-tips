@@ -25,13 +25,13 @@
     <select id="getRolesByUserId" resultMap="resultRoleMap" parameterType="int">
         SELECT r.*, ur.user_id
         FROM t_role r, t_user_role ur
-        WHERE r.id=u.role_id AND ur.user_id=#{user_id}
+        WHERE r.id=ur.role_id AND ur.user_id=#{userId}
     </select>
 
     <select id="getUsersByRoleId" resultMap="resultUserMap" parameterType="int">
         SELECT u.*, ur.role_id
         FROM t_user u, t_user_role ur
-        WHERE u.id=ur.user_id AND ur.role_id=#{role_id}
+        WHERE u.id=ur.user_id AND ur.role_id=#{roleId}
     </select>
 
 

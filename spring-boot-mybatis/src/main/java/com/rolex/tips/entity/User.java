@@ -36,6 +36,7 @@ public class User implements Serializable {
     @UpdateTime
     private Date updateTime;
     private List<Role> roles;
+    private List<Tag> tags;
 
     public User(String name, Integer age, Gender gender, Skill skill, Date createTime, Date updateTime) {
         this.name = name;

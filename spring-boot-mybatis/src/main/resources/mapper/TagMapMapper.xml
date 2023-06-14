@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.rolex.tips.mapper.TagMapMapper">
+
+    <resultMap type="com.rolex.tips.entity.User" id="resultUserMap">
+        <result property="id" column="id"/>
+        <result property="name" column="username"/>
+        <result column="age" property="age"/>
+        <result column="gender" property="gender"/>
+        <result column="skill" property="skill"/>
+        <result column="create_time" property="createTime"/>
+        <result column="update_time" property="updateTime"/>
+    </resultMap>
+
+    <resultMap type="com.rolex.tips.entity.Tag" id="resultTagMap">
+        <result property="id" column="id"/>
+        <result property="name" column="name"/>
+    </resultMap>
+
+    <insert id="insertTagMap" parameterType="com.rolex.tips.entity.UserRole">
+        INSERT INTO t_tag_map(user_id, tag_id)
+        VALUES(#{userId}, #{tagId})
+    </insert>
+
+    <select id="getTagsByUserId" resultMap="resultTagMap" parameterType="int">
+        SELECT t.*, tm.user_id
+        FROM t_tag t, t_tag_map tm
+        WHERE t.id=tm.tag_id AND tm.user_id=#{userId}
+    </select>
+
+</mapper>
